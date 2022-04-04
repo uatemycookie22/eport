@@ -1,0 +1,121 @@
+@import "../../global";
+
+.intro{
+  background-color: white;
+  display: flex;
+
+  @include mobile{
+    flex-direction: column;
+    align-items: center;
+  }
+  .left{
+    flex: .4;
+    overflow: hidden;
+    @include mobile{
+      flex: .6;
+    }
+    .imgContainer{
+      width: 500px;
+      height: 400px;
+      margin-top: 100px;
+      background-color: #6ae06a;
+      border-radius: 20%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      float: right;
+      border: 0 solid black;
+
+
+      @include mobile{
+        align-items: flex-end;
+        margin-top: 30px;
+        height: 400px;
+      }
+      img{
+        width: 70%;
+
+        @include mobile{
+          height: 100%;
+        }
+      }
+    }
+  }
+  .right{
+    flex: 0.6;
+    background-color: white;
+    position: relative;
+    @include mobile{
+      flex: .5;
+    }
+
+    .wrapper{
+      width: 90%;
+      height: 100%;
+      padding-left: 50px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @include mobile{
+        padding-left: 0;
+        align-items: center;
+      }
+      h1{
+        font-size: 60px;
+        margin: 10px 0;
+        @include mobile{
+          font-size: 40px;
+        }
+      }
+
+      h2{
+        font-size: 35px;
+
+      }
+
+      h3{
+        font-size: 30px;
+
+        span{
+          font-size: inherit;
+          color: green;
+        }
+
+      }
+      .icon{
+        font-size: xxx-large;
+        color: $mainColor;
+
+      }
+    }
+    a{
+      position: absolute;
+      bottom: 10%;
+      left: 30%;
+      @include mobile{
+        bottom: 30px;
+        left: 43%;
+        //top: 40%;
+      }
+      .arrow{
+        font-size: xxx-large;
+        color: black;
+        animation: arrowBlink 2200ms infinite;
+
+      }
+
+      @keyframes arrowBlink {
+        70%{
+          opacity: 0;
+        }
+        100%{
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+}
+

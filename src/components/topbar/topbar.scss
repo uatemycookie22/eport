@@ -1,0 +1,102 @@
+@import "../../global";
+
+.topbar{
+  background-color: white;
+  color: $mainColor;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0; //Top margin
+  z-index: 3; //Z position
+  transition: all 400ms;
+  .wrapper{
+    padding: 10px 30px; //Vertical and horizontal
+    display: flex; //Stacks items horizontally
+    align-items: center;
+    justify-content: space-between; //Aligns items evenly
+
+    .left{
+      display: flex;
+      align-items: center; //Align children
+
+      .logo{
+        font-size: 40px;
+        font-weight: 700; //Bold
+        text-decoration: none; //Removes decorations
+        color: inherit; //Inherits color from .topbar
+        margin-right: 40px; //Pushes objects to the right
+      }
+      .itemContainer{
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+        @include mobile{
+          display: none;
+        }
+
+        .icon{
+          margin-right: 7px;
+        }
+
+        span{
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
+    .right{
+
+      .hamburger{
+        display: flex;
+        width: 30px;
+        height: 30px;
+        flex-direction: column; //Turn direction horizontally
+        justify-content: space-between;
+        cursor: pointer;
+        //background-color: black;
+        span{
+          width: 100%;
+          height: 3px;
+          background-color: $mainColor;
+          transform-origin: left;
+          transition: all 250ms ease;
+        }
+      }
+    }
+  }
+
+  &.active{
+    background-color: $mainColor;
+    color: white;
+    .wrapper{
+      .left{
+        .logo{
+          transition: all 500ms;
+          color: white;
+        }
+      }
+    }
+    .hamburger{
+      //justify-content: space-between;
+      span{
+        &:first-child{
+          background-color: white;
+          //margin-left: 5px;
+
+          transform: rotate(45deg);
+          width: 125%;
+        }
+        &:nth-child(2){
+          //background-color: white;
+          opacity: 0;
+        }
+        &:last-child{
+          background-color: white;
+          //margin-left: 5px;
+          transform: rotate(-45deg);
+          width: 125%;
+        }
+      }
+    }
+  }
+}
